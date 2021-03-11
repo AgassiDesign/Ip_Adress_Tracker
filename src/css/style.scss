@@ -1,0 +1,127 @@
+@import 'normalize';
+
+body {
+  font-family: Rubik, sans-serif;
+}
+
+#mapid {
+  height: 180px;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 330px;
+  background: white url('/images/pattern-bg.png') no-repeat;
+  background-size: cover;
+}
+
+.site-header {
+  width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 325px;
+
+  .tracker-panel {
+    text-align: center;
+    margin: 30px;
+    h1 {
+      color: white;
+    }
+
+    .tracker-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .tracker-input,
+      .tracker-btn {
+        border: unset;
+        outline: unset;
+        border: 0;
+      }
+      .tracker-input {
+        width: 450px;
+        border-radius: 7px 0 0 7px;
+        padding: 5px 5px 5px 15px;
+        height: 32px;
+        font-size: 18px;
+      }
+
+      .tracker-btn {
+        background-color: black;
+        width: 42px;
+        height: 44px;
+        border-radius: 0 15px 15px 0;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          position: absolute;
+          background: black url('/images/icon-arrow.svg');
+          left: 15px;
+          top: 15px;
+          color: white;
+          width: 11px;
+          height: 14px;
+        }
+      }
+    }
+  }
+  .tracker-board {
+    width: 900px;
+    height: 150px;
+    margin: 30px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -100px;
+    z-index: 50;
+
+    & > div:not(:last-child) {
+      position: relative;
+      &::before {
+        border-right: 1px solid #969696;
+        content: '';
+        position: absolute;
+        height: 60px;
+        right: 5px;
+        top: 10px;
+      }
+    }
+    .ip-adress,
+    .location,
+    .timezone,
+    .isp {
+      margin: 10px;
+      small {
+        font-size: 12px;
+        color: hsl(0, 0%, 59%);
+        text-transform: uppercase;
+      }
+      padding: 5px 25px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+  }
+}
+.leaf-map {
+  z-index: 0;
+  position: relative;
+}
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+}
